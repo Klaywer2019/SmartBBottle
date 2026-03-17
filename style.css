@@ -7,25 +7,39 @@
 }
 
 body {
-    background-color: #050a12 !important; 
+    /* FUNDO COM TEXTURA DE ÁGUA */
+    background: radial-gradient(circle at top, #001f3f 0%, #050a12 100%) !important;
+    background-attachment: fixed;
     color: white !important;
     line-height: 1.6;
-    /* Força uma largura mínima para o efeito de Desktop */
-    min-width: 1000px; 
+    min-width: 1000px; /* Força o visual de Desktop que você pediu */
+    position: relative;
+}
+
+/* Camada extra para textura de água */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); 
+    opacity: 0.15; /* Deixa a textura bem suave */
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* HEADER - O TOPO */
 .topo {
-    background: linear-gradient(180deg, #001f3f 0%, #050a12 100%);
+    background: linear-gradient(180deg, rgba(0, 31, 63, 0.9) 0%, rgba(5, 10, 18, 0.9) 100%);
     padding: 60px 20px;
     text-align: center;
+    border-bottom: 2px solid rgba(0, 210, 255, 0.2);
 }
 
 .topo h1 {
     font-size: 3rem;
     letter-spacing: 5px;
     margin-bottom: 40px;
-    text-shadow: 0 0 15px #00d2ff; 
+    text-shadow: 0 0 15px #00d2ff, 0 0 30px rgba(0, 210, 255, 0.5); 
 }
 
 /* MENU CENTRALIZADO */
@@ -48,6 +62,7 @@ body {
 .menu li:hover {
     background: #00d2ff;
     transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
 }
 
 .menu a {
@@ -65,12 +80,13 @@ body {
 }
 
 .bloco {
-    background: #0d1626;
+    background: rgba(13, 22, 38, 0.8); /* Fundo semi-transparente */
     padding: 40px;
     border-radius: 20px;
     margin-bottom: 40px;
     border-top: 4px solid #00d2ff;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px); /* Efeito de vidro na água */
 }
 
 .bloco h2 {
@@ -79,68 +95,48 @@ body {
     font-size: 2rem;
 }
 
-/* --- ESTILO DAS DÚVIDAS FREQUENTES (FAQ) --- */
-.faq-lista {
-    list-style: none;
-    margin-top: 20px;
+/* --- CARD DO PANDA DANÇARINO (SALVADOR DO CATÁLOGO) --- */
+.card-panda {
+    min-height: 250px;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    /* GIF do Panda no fundo */
+    background-image: url('https://media.giphy.com/media/l41Ys1fT5c0p916b2/giphy.gif'); 
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    transition: 0.4s ease;
 }
 
+.card-panda:hover {
+    transform: translateY(-8px);
+    border-color: #00d2ff;
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
+}
+
+.conteudo-produto {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(5, 10, 18, 0.9);
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+/* FAQ E LINKS */
+.faq-lista { list-style: none; margin-top: 20px; }
 .faq-item {
     background: rgba(13, 22, 38, 0.8);
     border: 1px solid rgba(0, 210, 255, 0.3);
     border-radius: 10px;
     padding: 15px 20px;
     margin-bottom: 15px;
-    text-align: left;
-    transition: 0.3s;
 }
-
-.faq-item:hover {
-    border-color: #00d2ff;
-    background: rgba(0, 210, 255, 0.05);
-}
-
-.faq-pergunta {
-    color: #00d2ff;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.faq-pergunta::before {
-    content: '▶';
-    font-size: 0.8rem;
-}
-
-.link-azul {
-    color: #00d2ff !important;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 20px;
-}
+.faq-pergunta { color: #00d2ff; font-weight: bold; }
+.link-azul { color: #00d2ff !important; font-weight: bold; text-decoration: none; margin-top: 20px; display: inline-block; }
 
 /* GRID */
-.grid {
-    display: flex;
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.item {
-    background: #16243d;
-    padding: 20px;
-    border-radius: 15px;
-    flex: 1;
-    transition: 0.3s;
-}
-
-.item:hover {
-    background: #1e3256;
-}
-
-/* REMOVI O @MEDIA QUERY DE CELULAR 
-   Isso garante que o layout não "se quebre" para mobile, 
-   mantendo a cara de PC e pedindo o zoom que você quer.
-*/
+.grid { display: flex; gap: 20px; margin-top: 30px; }
+.item { flex: 1; }
