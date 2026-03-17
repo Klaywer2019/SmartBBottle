@@ -3,116 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartBBottle | Oficial</title>
+    <title>SmartBBottle | Inovação em Hidratação</title>
     <style>
-        /* CSS BRABO PRA FICAR PROFISSA */
+        /* ESTILO PROFISSA - DARK & CLEAN */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #0b1a2a; /* Azul bem escuro, quase preto */
+            background-color: #050a12;
             color: white;
-            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* HEADER E MENU */
         header {
-            background: linear-gradient(to right, #004e92, #000428);
-            padding: 40px 20px;
+            background: linear-gradient(135deg, #004e92 0%, #000428 100%);
+            padding: 50px 20px;
             text-align: center;
-            border-bottom: 3px solid #00d2ff;
+            border-bottom: 4px solid #00d2ff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
 
         header h1 {
-            font-size: 2.5rem;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-            color: #00d2ff;
+            font-size: 3rem;
+            letter-spacing: 5px;
+            text-shadow: 2px 2px 10px rgba(0,210,255,0.5);
+            margin-bottom: 25px;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
         nav a {
             text-decoration: none;
-            color: white;
+            color: #fff;
             background: rgba(255,255,255,0.1);
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-            border: 1px solid transparent;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid #00d2ff;
         }
 
         nav a:hover {
             background: #00d2ff;
-            color: #000;
-            transform: scale(1.1);
+            color: #050a12;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,210,255,0.4);
         }
 
-        /* CONTEÚDO PRINCIPAL */
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
         }
 
         section {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            border-left: 5px solid #00d2ff;
+            background: #0d1626;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         h2 {
-            margin-bottom: 15px;
             color: #00d2ff;
-            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-left: 5px solid #00d2ff;
+            padding-left: 15px;
         }
 
-        /* AJUSTE DAS IMAGENS */
-        .img-box {
+        /* ESTILO DAS IMAGENS */
+        .img-container {
+            width: 100%;
             text-align: center;
             margin: 20px 0;
         }
 
-        img {
+        .img-container img {
             max-width: 100%;
             height: auto;
-            border-radius: 10px;
-            /* Se a imagem não existir, esse estilo ajuda a não ficar feio */
-            color: #555;
-            font-style: italic;
+            border-radius: 15px;
+            border: 2px solid #1a2a40;
+            transition: 0.3s;
         }
 
-        .btn-saiba-mais {
+        .img-container img:hover {
+            border-color: #00d2ff;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card-produto {
+            background: #16243d;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .btn-link {
             display: inline-block;
-            margin-top: 15px;
+            margin-top: 20px;
             color: #00d2ff;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.1rem;
         }
 
-        /* GRID DO CATÁLOGO */
-        .grid-catalogo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        @media (max-width: 600px) {
-            .grid-catalogo { grid-template-columns: 1fr; }
-            header h1 { font-size: 1.8rem; }
+        @media (max-width: 768px) {
+            .grid-produtos { grid-template-columns: 1fr; }
+            header h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -131,35 +144,30 @@
 
     <div class="container">
 
-        <section id="sobre">
-            <h2>SOBRE NÓS</h2>
-            <div class="img-box">
-                <img src="SmartBBottle.png" alt="SmartBBottle - Garrafa Inteligente">
+        <section>
+            <h2>QUEM SOMOS?</h2>
+            <div class="img-container">
+                <img src="https://www.google.com/search?vsrid=CLWFqcXlj5C53QEQAhgBIiQ1ZDMxYjQ0Yi00MzNlLTRmM2ItODBmNS00MzljNjZlMTI1OTQyeyICY2YoCkJzCi5sZmUtZHVtbXk6NWMyYTgyNzctYTUyYS00ZjgyLThmMDYtMmEyYmU5ZmY1OTg0EkEKPy9ibnMvY2YvYm9yZy9jZi9ibnMvbGVucy1mcm9udGVuZC1hcGkvcHJvZC5sZW5zLWZyb250ZW5kLWFwaS83MDi8uZjU6aWTAw" alt="SmartBBottle">
             </div>
-            <p>Na nossa empresa, acreditamos que cuidar da saúde pode ser simples e inteligente. Desenvolvemos tecnologia para manter sua hidratação no nível máximo.</p>
-            <a href="quem-somos.html" target="_blank" class="btn-saiba-mais">Saiba mais sobre nossa história >>></a>
+            <p>Acreditamos que cuidar da saúde deve ser simples. Nossa garrafa inteligente ajuda você a manter o foco no que importa: seu bem-estar.</p>
+            <a href="quem-somos.html" target="_blank" class="btn-link">Conheça nossa missão >>></a>
         </section>
 
-        <section id="catalogo">
+        <section>
             <h2>NOSSO CATÁLOGO</h2>
-            <div class="grid-catalogo">
-                <div>
-                    <img src="Garrafas.png" alt="Nossas Garrafas">
-                    <h3>GARRAFAS</h3>
-                    <p>Modelos térmicos e inteligentes.</p>
+            <div class="grid-produtos">
+                <div class="card-produto">
+                    <img src="https://www.google.com/search?vsrid=CL6TtcCArNWEYRACGAEiJGJjYWE1OTA1LTgyNzEtNGFkZi05ZWEyLWQ2ZTZhNDM4ZDZlMDIGIgJjZigGOKKBhILqpZMD" alt="Linha de Garrafas">
+                    <h3 style="margin-top: 15px;">GARRAFAS</h3>
                 </div>
-                <div>
-                    <img src="Sabores.png" alt="Nossos Sabores">
-                    <h3>SABORES</h3>
-                    <p>Essências naturais para sua água.</p>
+                <div class="card-produto">
+                    <img src="https://www.google.com/search?vsrid=CKeb-Z2Sue7JQRACGAEiJDk0NzYzNDg1LTZhNTItNDBmOC1iZTE5LTlhNzQxZjMxZWQ4MzIGIgJjZigBOMvY043qpZMD" alt="Nossos Sabores">
+                    <h3 style="margin-top: 15px;">SABORES</h3>
                 </div>
             </div>
-        </section>
-
-        <section id="ajuda">
-            <h2>DÚVIDAS FREQUENTES</h2>
-            <p>Tem alguma pergunta? Nossa equipe de suporte está pronta para ajudar você a configurar sua garrafa.</p>
-            <a href="ajuda.html" target="_blank" class="btn-saiba-mais">Ver Central de Ajuda</a>
+            <div style="text-align: center;">
+                <a href="catalogo.html" target="_blank" class="btn-link">Explorar catálogo completo</a>
+            </div>
         </section>
 
     </div>
