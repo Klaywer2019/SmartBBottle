@@ -7,9 +7,11 @@
 }
 
 body {
-    background-color: #050a12 !important; /* Força o fundo escuro */
+    background-color: #050a12 !important; 
     color: white !important;
     line-height: 1.6;
+    /* Força uma largura mínima para o efeito de Desktop */
+    min-width: 1000px; 
 }
 
 /* HEADER - O TOPO */
@@ -23,14 +25,14 @@ body {
     font-size: 3rem;
     letter-spacing: 5px;
     margin-bottom: 40px;
-    text-shadow: 0 0 15px #00d2ff; /* Efeito de brilho no nome */
+    text-shadow: 0 0 15px #00d2ff; 
 }
 
 /* MENU CENTRALIZADO */
 .menu ul {
     list-style: none;
     display: flex;
-    justify-content: center; /* CENTRALIZAÇÃO TOTAL */
+    justify-content: center; 
     flex-wrap: wrap;
     gap: 25px;
 }
@@ -77,6 +79,40 @@ body {
     font-size: 2rem;
 }
 
+/* --- ESTILO DAS DÚVIDAS FREQUENTES (FAQ) --- */
+.faq-lista {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.faq-item {
+    background: rgba(13, 22, 38, 0.8);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.faq-item:hover {
+    border-color: #00d2ff;
+    background: rgba(0, 210, 255, 0.05);
+}
+
+.faq-pergunta {
+    color: #00d2ff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.faq-pergunta::before {
+    content: '▶';
+    font-size: 0.8rem;
+}
+
 .link-azul {
     color: #00d2ff !important;
     text-decoration: none;
@@ -104,9 +140,7 @@ body {
     background: #1e3256;
 }
 
-/* CELULAR */
-@media (max-width: 768px) {
-    .grid { flex-direction: column; }
-    .topo h1 { font-size: 2rem; }
-    .menu ul { gap: 15px; }
-}
+/* REMOVI O @MEDIA QUERY DE CELULAR 
+   Isso garante que o layout não "se quebre" para mobile, 
+   mantendo a cara de PC e pedindo o zoom que você quer.
+*/
