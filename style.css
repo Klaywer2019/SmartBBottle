@@ -187,3 +187,45 @@ body::before {
     margin-bottom: 15px;
 }
 .faq-pergunta { color: #00d2ff; font-weight: bold; }
+
+/* --- ESTILO DO RODAPÉ (CRÉDITOS DO YURI) --- */
+.rodape-creditos {
+    margin-top: 50px;
+    padding: 40px 20px;
+    background: rgba(0, 31, 63, 0.9);
+    border-top: 2px solid #00d2ff;
+    text-align: center;
+    position: relative;
+    z-index: 20; /* Fica na frente das bolhas */
+}
+
+.bloco-autor {
+    margin-bottom: 20px;
+    background: rgba(0, 210, 255, 0.05);
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.nome-autor {
+    color: #00d2ff;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    margin: 5px 0;
+}
+
+.info-autor {
+    color: #ccc;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.direitos {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 20px;
+}
+
+
