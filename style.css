@@ -1,222 +1,31 @@
-/* --- RESET E ESTILOS BÁSICOS --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: #f9f9f9;
-    overflow-x: hidden;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 20px;
-}
-
-h1, h2, h3 {
-    text-transform: uppercase;
-}
-
-/* --- ESTILOS DO BANNER INICIAL --- */
-.banner {
-    height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10%;
-    background: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        radial-gradient(circle at center, transparent 0%, rgba(10, 50, 90, 0.9) 100%),
-        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80'); /* Exemplo de fundo de água */
-    background-size: cover;
-    background-position: center;
-    color: white;
-}
-
-.banner-content {
-    flex: 0 0 50%;
-    z-index: 5;
-}
-
-.banner-content h1 {
-    font-size: 5rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 50px;
-    background: linear-gradient(to right, #ffffff, #afe0e5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* --- O QUE VOCÊ PEDIU: AJUSTE DO MENU --- */
+/* --- CORREÇÃO DO MENU --- */
 .main-menu ul {
     list-style: none;
     display: flex;
-    flex-direction: column;
-    gap: 35px; /* Aumentei de 20px para 35px pra dar aquele respiro */
+    flex-direction: column; /* Mantém em coluna no mobile para não amontoar */
+    gap: 30px; /* Esse é o segredo: aumenta o espaço entre eles */
+    align-items: center; /* Centraliza os botões */
+    margin-top: 40px; /* Empurra o menu um pouco para baixo do título */
 }
 
 .main-menu li {
     background: rgba(255, 255, 255, 0.1);
-    padding: 15px 40px; /* Aumentei um pouco o preenchimento pros botões ficarem maiores */
+    padding: 12px 25px; /* Diminuí um pouco o enchimento para caber melhor na tela */
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    width: fit-content; /* Faz o botão não ocupar a largura toda */
-}
-
-.main-menu li:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid #4eb4ba;
-    transform: translateX(10px); /* Efeitinho de deslizar pro lado no hover */
-}
-
-.main-menu a {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    font-size: 1.2rem;
-    display: block;
-}
-
-/* --- ELEMENTOS GRÁFICOS NO BANNER --- */
-.banner-media {
-    flex: 0 0 50%;
-    position: relative;
-    height: 100%;
-    z-index: 1;
-}
-
-.water-background-shape {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 130%;
-    height: 90%;
-    background: linear-gradient(135deg, #02435e 0%, #06a5b6 100%);
-    border-radius: 70% 30% 60% 40% / 50% 60% 40% 50%;
-    opacity: 0.8;
-    z-index: -1;
-}
-
-.bottle-mockup, .mascot-mockup {
-    position: absolute;
-    max-height: 80%;
-}
-
-.bottle-mockup img, .mascot-mockup img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.bottle-mockup { bottom: 5%; right: 5%; }
-.mascot-mockup { bottom: 10%; right: 35%; }
-
-/* --- SEÇÃO SOBRE NÓS --- */
-.sobre-nos {
-    background: white;
-    padding: 100px 0;
-}
-
-.card-sobre {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 60px;
-    border-radius: 20px;
-    color: #0d2a45;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    position: relative;
-    border-left: 8px solid #06a5b6;
-}
-
-.card-sobre h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #06a5b6;
-}
-
-.card-sobre p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-}
-
-.seta-indicador {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    color: #4eb4ba;
-    font-size: 2rem;
-}
-
-/* --- CATÁLOGO --- */
-.catalogo h2 {
+    width: 200px; /* Largura fixa para todos os botões ficarem iguais */
     text-align: center;
-    color: #0d2a45;
-    margin-bottom: 50px;
-    font-size: 2.5rem;
 }
 
-.catalogo-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-}
-
-.catalogo-item {
-    text-align: center;
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    border: 1px solid #eee;
-}
-
-.catalogo-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.media-placeholder {
-    height: 350px;
-    margin-bottom: 20px;
-    background: radial-gradient(circle, #f0f9fa 0%, #e0f2f4 100%);
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.media-placeholder img {
-    max-width: 80%;
-    max-height: 80%;
-    object-fit: contain;
-}
-
-.catalogo-item h3 {
-    font-size: 1.8rem;
-    color: #06a5b6;
-}
-
-/* --- RESPONSIVIDADE --- */
-@media (max-width: 1024px) {
-    .banner-content h1 { font-size: 3.5rem; }
-}
-
-@media (max-width: 768px) {
-    .banner { flex-direction: column; padding-top: 100px; justify-content: center; }
-    .banner-content { flex: none; text-align: center; display: flex; flex-direction: column; align-items: center; }
-    .banner-media { display: none; }
-    .main-menu ul { align-items: center; gap: 25px; } /* Espaço ajustado pro celular também */
-    .catalogo-grid { grid-template-columns: 1fr; }
+/* Ajuste específico para telas muito pequenas */
+@media (max-width: 480px) {
+    .banner-content h1 {
+        font-size: 2.5rem; /* Diminui o título para o menu subir um pouco */
+        margin-bottom: 30px;
+    }
+    .main-menu ul {
+        gap: 20px; /* Espaço um pouco menor se a tela for minúscula */
+    }
 }
