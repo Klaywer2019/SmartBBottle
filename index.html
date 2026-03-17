@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação de Trabalhos</title>
+    <title>Apresentação de Trabalhos - Interativo</title>
     <style>
-        /* Reset básico pra não dar bug */
+        /* --- Reset e Base Estilizada (igual ao anterior) --- */
         * {
             margin: 0;
             padding: 0;
@@ -14,108 +14,215 @@
         }
 
         body {
-            background-color: #141414; /* Corzinha dark padrão */
+            background-color: #141414; /* Dark Mode */
             color: white;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza o conteúdo horizontalmente */
+            padding-top: 80px; /* Espaço para o header fixo */
         }
 
-        /* Header estilizado */
+        /* --- Header Estilizado --- */
         header {
             padding: 20px 50px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent);
+            background: rgba(20, 20, 20, 0.95); /* Leve transparência */
             position: fixed;
+            top: 0;
             width: 100%;
-            z-index: 10;
+            z-index: 100;
+            text-align: left;
+            max-width: 800px; /* Largura máxima igual ao container */
         }
 
         header h1 {
-            color: #E50914; /* Vermelho brabo */
-            font-size: 1.8rem;
+            color: #E50914; /* Vermelho Netflix */
+            font-size: 2rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
-        /* Banner de Destaque */
-        .banner {
-            height: 60vh;
-            background: linear-gradient(to right, #141414, transparent), 
-                        url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            padding: 0 50px;
-        }
-
-        .banner-content h2 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        /* Grid de Trabalhos */
-        .container {
-            padding: 30px 50px;
-        }
-
-        .row-title {
+        header h2 {
             font-size: 1.2rem;
-            margin-bottom: 15px;
-            font-weight: bold;
+            color: #ddd;
+            font-weight: 500;
         }
 
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
+        /* --- Container Principal --- */
+        .container {
+            width: 90%;
+            max-width: 800px; /* Largura máxima boa pra mobile/tablet */
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Espaço entre os cards */
+            padding-bottom: 50px; /* Espaço no final */
         }
 
-        .card {
+        /* --- Escondendo os Checkboxes (a mágica) --- */
+        .card-checkbox {
+            display: none;
+        }
+
+        /* --- Estilização do Card (agora é um <label>) --- */
+        .card-trigger {
             background-color: #2f2f2f;
-            height: 120px;
-            border-radius: 4px;
-            transition: transform 0.3s ease;
+            color: white;
+            height: 150px;
+            border-radius: 8px; /* Cantos arredondados */
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 10px;
-            border: 1px solid transparent;
+            padding: 20px;
+            transition: background-color 0.3sease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            user-select: none; /* Impede seleção de texto acidental */
         }
 
-        /* Efeito de hover que a gente gosta */
-        .card:hover {
-            transform: scale(1.05);
-            border-color: #fff;
+        .card-trigger h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        /* --- Efeito de Hover e Clique --- */
+        .card-trigger:hover {
             background-color: #3d3d3d;
         }
 
-        .card p {
-            font-size: 0.9rem;
-            font-weight: 500;
+        /* Quando o checkbox associado é marcado (clicado) */
+        .card-checkbox:checked + .card-trigger {
+            background-color: #4a4a4a; /* Muda cor pra indicar seleção */
+            transform: scale(0.98); /* Leve efeito de "afundar" */
+            border-radius: 8px 8px 0 0; /* Remove cantos inferiores */
         }
+
+        /* --- Painel de Informações (Inicialmente escondido) --- */
+        .info-panel {
+            background-color: #262626; /* Cor ligeiramente mais clara */
+            color: #ccc;
+            overflow: hidden; /* Esconde o conteúdo se estiver fechado */
+            height: 0; /* Começa com altura zero */
+            opacity: 0; /* Começa invisível */
+            border-radius: 0 0 8px 8px; /* Cantos inferiores arredondados */
+            transition: height 0.4s ease, opacity 0.4s ease, padding 0.4s ease; /* Animação suave */
+            padding: 0 20px; /* Padding lateral */
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
+        }
+
+        /* Título dentro do painel */
+        .info-panel h4 {
+            color: white;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #E50914; /* Detalhe em vermelho */
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Lista dentro do painel */
+        .info-panel ul {
+            list-style-type: none; /* Remove bolinhas da lista */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .info-panel li strong {
+            color: white;
+        }
+
+        /* --- Revelando o Painel de Informações --- */
+        /* Quando o checkbox associado é marcado... */
+        .card-checkbox:checked + .card-trigger + .info-panel {
+            height: auto; /* Deixa o conteúdo definir a altura */
+            opacity: 1; /* Torna visível */
+            padding: 25px 20px; /* Adiciona padding vertical */
+            margin-top: -1px; /* Cola no card acima */
+            border-top: 1px solid #444; /* Linha sutil de divisão */
+        }
+
+        /* --- Responsividade (Para telas menores) --- */
+        @media (max-width: 600px) {
+            header {
+                padding: 15px 20px;
+            }
+            header h1 {
+                font-size: 1.6rem;
+            }
+            .card-trigger {
+                height: 120px;
+            }
+            .info-panel {
+                font-size: 0.9rem;
+            }
+        }
+
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Trabalhos Academy</h1>
+        <h1>TRABALHOS ACADEMY</h1>
+        <h2>Minha Lista de Trabalhos</h2>
     </header>
 
-    <section class="banner">
-        <div class="banner-content">
-            <h2>Projeto em Destaque</h2>
-            <p>Clique abaixo para explorar os módulos da apresentação.</p>
-        </div>
-    </section>
-
     <div class="container">
-        <p class="row-title">Minha Lista de Trabalhos</p>
-        <div class="cards-container">
-            <div class="card"><p>Introdução ao Tema</p></div>
-            <div class="card"><p>Desenvolvimento 01</p></div>
-            <div class="card"><p>Análise de Dados</p></div>
-            <div class="card"><p>Conclusão Final</p></div>
-            <div class="card"><p>Referências</p></div>
+
+        <div class="item-grupo">
+            <input type="checkbox" id="check1" class="card-checkbox">
+            <label for="check1" class="card-trigger">
+                <h3>Introdução ao Tema</h3>
+            </label>
+            <div class="info-panel">
+                <h4>O que você vai aprender:</h4>
+                <ul>
+                    <li><strong>Contextualização:</strong> Uma breve história do problema.</li>
+                    <li><strong>A Importância:</strong> Por que escolhemos este tema.</li>
+                    <li><strong>Objetivos:</strong> O que pretendemos alcançar com esta pesquisa.</li>
+                    <li><strong>Metodologia:</strong> Um vislumbre de como vamos investigar.</li>
+                </ul>
+            </div>
         </div>
+
+        <div class="item-grupo">
+            <input type="checkbox" id="check2" class="card-checkbox">
+            <label for="check2" class="card-trigger">
+                <h3>Desenvolvimento 01</h3>
+            </label>
+            <div class="info-panel">
+                <h4>Principais Desafios:</h4>
+                <p>Nesta etapa inicial de desenvolvimento, focamos na estruturação básica do sistema e na definição das tecnologias principais (HTML, CSS puro). Os maiores desafios incluíram a criação de um layout responsivo que se adaptasse perfeitamente a dispositivos móveis.</p>
+            </div>
+        </div>
+
+        <div class="item-grupo">
+            <input type="checkbox" id="check3" class="card-checkbox">
+            <label for="check3" class="card-trigger">
+                <h3>Análise de Dados</h3>
+            </label>
+            <div class="info-panel">
+                <h4>Resultados do Primeiro Trimestre:</h4>
+                <ul>
+                    <li><strong>Taxa de Conversão:</strong> Aumento de 15% após o redesign.</li>
+                    <li><strong>Engajamento:</strong> O tempo médio de sessão subiu para 4:30 min.</li>
+                    <li><strong>Feedback:</strong> 80% dos usuários relataram uma experiência "ótima" ou "excelente".</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="item-grupo">
+            <input type="checkbox" id="check4" class="card-checkbox">
+            <label for="check4" class="card-trigger">
+                <h3>Conclusão Final</h3>
+            </label>
+            <div class="info-panel">
+                <h4>Pontos Chave:</h4>
+                <p>Este trabalho demonstrou que a implementação de uma interface limpa e intuitiva, combinada com uma navegação bem estruturada (como este painel expansível), melhora significativamente a retenção de informações pelo usuário final.</p>
+            </div>
+        </div>
+
     </div>
 
 </body>
