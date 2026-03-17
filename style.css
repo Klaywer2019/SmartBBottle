@@ -1,0 +1,247 @@
+/* --- RESET E ESTILOS BÁSICOS (Crucial) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; /* Usando a fonte que importamos */
+}
+
+html {
+    scroll-behavior: smooth; /* Rolagem suave pro menu funcionar */
+}
+
+body {
+    background-color: #f9f9f9; /* Fundo cinza bem claro pras outras seções */
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+}
+
+/* --- ESTILOS DO BANNER INICIAL (O Desafio) --- */
+.banner {
+    height: 100vh; /* Altura total da tela */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    
+    /* Vamos recriar o fundo da água no CSS puro (vibe imagem de fundo) */
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), /* Overlay escuro */
+        radial-gradient(circle at center, transparent 0%, rgba(10, 50, 90, 0.9) 100%), /* Radial de água */
+        url('vossa_imagem_de_agua_css_ou_fundo.png'); /* A imagem de água que seu amigo gostou */
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.banner-content {
+    flex: 0 0 50%;
+    z-index: 5;
+}
+
+.banner-content h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    background: linear-gradient(to right, #ffffff, #afe0e5); /* Efeito gradiente no texto */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-menu li {
+    background: rgba(255, 255, 255, 0.1); /* Fundo sutil dos botões do menu */
+    padding: 15px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.main-menu li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #4eb4ba; /* Linha de borda aqua no hover */
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: block;
+}
+
+/* --- ESTILOS DOS ELEMENTOS GRÁFICOS NO BANNER --- */
+.banner-media {
+    flex: 0 0 50%;
+    position: relative;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Recriando a forma da água no CSS puro (vibe image_4.png shapes) */
+.water-background-shape {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 130%;
+    height: 90%;
+    background: linear-gradient(135deg, #02435e 0%, #06a5b6 100%);
+    border-radius: 70% 30% 60% 40% / 50% 60% 40% 50%; /* Fazendo a forma fluida */
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.bottle-mockup, .mascot-mockup {
+    position: absolute;
+    max-height: 80%;
+}
+
+/* Use placeholders transparentes pra esses mocks funcionarem */
+.bottle-mockup img, .mascot-mockup img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.bottle-mockup {
+    bottom: 5%;
+    right: 5%;
+}
+
+.mascot-mockup {
+    bottom: 10%;
+    right: 35%;
+}
+
+/* --- ESTILOS DA SEÇÃO SOBRE NÓS (Vibe image_3.png) --- */
+.sobre-nos {
+    background: 
+        url('vossa_imagem_de_agua_css_ou_fundo.png') top center / cover no-repeat,
+        white; /* Fundo de água sutil no topo e branco embaixo */
+}
+
+.card-sobre {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 60px;
+    border-radius: 20px;
+    color: #0d2a45; /* Azul marinho escuro */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.card-sobre h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #06a5b6; /* Azul aqua */
+}
+
+.card-sobre p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.seta-indicador {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    color: #4eb4ba;
+    font-weight: bold;
+}
+
+/* --- ESTILOS DO CATÁLOGO (Vibe image_2.png) --- */
+.catalogo {
+    background-color: white;
+}
+
+.catalogo h2 {
+    text-align: center;
+    color: #0d2a45;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+}
+
+.catalogo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.catalogo-item {
+    text-align: center;
+    background: #f9f9f9;
+    padding: 40px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.catalogo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.media-placeholder {
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    /* Adicionando a vibe da água atrás dos objetos no CSS puro */
+    background: 
+        radial-gradient(circle at center, transparent 0%, rgba(2, 67, 94, 0.1) 100%),
+        white;
+}
+
+.media-placeholder img {
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+}
+
+.catalogo-item h3 {
+    font-size: 1.8rem;
+    color: #06a5b6;
+}
+
+/* --- AJUSTES DE RESPONSIVIDADE (Fundamental pra celular) --- */
+@media (max-width: 1024px) {
+    .banner-content h1 { font-size: 3.5rem; }
+    .catalogo-item h3 { font-size: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column;
+        padding-top: 150px;
+    }
+    .banner-content { flex: none; text-align: center; }
+    .banner-media { display: none; } /* Esconde mocks no celular pra otimizar */
+    
+    .sobre-nos, .catalogo { padding: 40px 10px; }
+    .card-sobre { padding: 30px; }
+    
+    .catalogo-grid { grid-template-columns: 1fr; }
+}
