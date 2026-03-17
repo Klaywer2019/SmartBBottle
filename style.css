@@ -1,42 +1,106 @@
-/* --- VOLTANDO AO ESTILO ORIGINAL + CENTRALIZADO --- */
-.main-menu ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row; /* Volta a ficar um do lado do outro */
-    justify-content: center; /* Centraliza o grupo todo no meio */
-    flex-wrap: wrap; /* Se a tela for pequena, eles pulam linha sem quebrar tudo */
-    gap: 20px; /* Espaço entre os botões */
+/* RESET BÁSICO */
+* {
+    margin: 0;
     padding: 0;
-    margin-top: 20px;
+    box-sizing: border-box;
+    font-family: sans-serif;
 }
 
-.main-menu li {
-    background: rgba(255, 255, 255, 0.1); /* Volta o fundo sutil */
-    padding: 10px 20px;
+body {
+    background-color: #050a12; /* Fundo escuro oficial */
+    color: white;
+    text-align: center;
+}
+
+/* CABEÇALHO E MENU */
+.topo {
+    padding: 40px 20px;
+    background: linear-gradient(180deg, #001f3f 0%, #050a12 100%);
+}
+
+.topo h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* CENTRALIZA OS BOTÕES */
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.menu li {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00d2ff;
     border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
     transition: 0.3s;
 }
 
-.main-menu li:hover {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: #4eb4ba;
+.menu li:hover {
+    background: #00d2ff;
 }
 
-.main-menu a {
+.menu a {
     text-decoration: none;
     color: white;
-    font-size: 1rem;
-    font-weight: 600;
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
-/* Ajuste para não bugar no celular */
-@media (max-width: 768px) {
-    .main-menu ul {
-        gap: 10px; /* Botões um pouco mais perto no celular pra caber */
-    }
-    
-    .main-menu li {
-        padding: 8px 15px; /* Botão menorzinho no mobile */
-    }
+/* CORPO DO SITE */
+.conteudo {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.bloco {
+    background: #0d1626;
+    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid #00d2ff;
+}
+
+.bloco h2 {
+    color: #00d2ff;
+    margin-bottom: 15px;
+}
+
+.link-azul {
+    color: #00d2ff;
+    text-decoration: none;
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* GRID DE PRODUTOS */
+.grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.item {
+    background: #16243d;
+    padding: 15px;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* AJUSTE CELULAR */
+@media (max-width: 600px) {
+    .grid { flex-direction: column; }
+    .topo h1 { font-size: 1.8rem; }
 }
