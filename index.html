@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação de Trabalhos</title>
+    <style>
+        /* Reset básico pra não dar bug */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #141414; /* Corzinha dark padrão */
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Header estilizado */
+        header {
+            padding: 20px 50px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent);
+            position: fixed;
+            width: 100%;
+            z-index: 10;
+        }
+
+        header h1 {
+            color: #E50914; /* Vermelho brabo */
+            font-size: 1.8rem;
+            text-transform: uppercase;
+        }
+
+        /* Banner de Destaque */
+        .banner {
+            height: 60vh;
+            background: linear-gradient(to right, #141414, transparent), 
+                        url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+        .banner-content h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        /* Grid de Trabalhos */
+        .container {
+            padding: 30px 50px;
+        }
+
+        .row-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background-color: #2f2f2f;
+            height: 120px;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid transparent;
+        }
+
+        /* Efeito de hover que a gente gosta */
+        .card:hover {
+            transform: scale(1.05);
+            border-color: #fff;
+            background-color: #3d3d3d;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Trabalhos Academy</h1>
+    </header>
+
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Projeto em Destaque</h2>
+            <p>Clique abaixo para explorar os módulos da apresentação.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <p class="row-title">Minha Lista de Trabalhos</p>
+        <div class="cards-container">
+            <div class="card"><p>Introdução ao Tema</p></div>
+            <div class="card"><p>Desenvolvimento 01</p></div>
+            <div class="card"><p>Análise de Dados</p></div>
+            <div class="card"><p>Conclusão Final</p></div>
+            <div class="card"><p>Referências</p></div>
+        </div>
+    </div>
+
+</body>
+</html>
