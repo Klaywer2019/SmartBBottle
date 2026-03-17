@@ -1,31 +1,42 @@
-/* --- CORREÇÃO DO MENU --- */
+/* --- VOLTANDO AO ESTILO ORIGINAL + CENTRALIZADO --- */
 .main-menu ul {
     list-style: none;
     display: flex;
-    flex-direction: column; /* Mantém em coluna no mobile para não amontoar */
-    gap: 30px; /* Esse é o segredo: aumenta o espaço entre eles */
-    align-items: center; /* Centraliza os botões */
-    margin-top: 40px; /* Empurra o menu um pouco para baixo do título */
+    flex-direction: row; /* Volta a ficar um do lado do outro */
+    justify-content: center; /* Centraliza o grupo todo no meio */
+    flex-wrap: wrap; /* Se a tela for pequena, eles pulam linha sem quebrar tudo */
+    gap: 20px; /* Espaço entre os botões */
+    padding: 0;
+    margin-top: 20px;
 }
 
 .main-menu li {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 12px 25px; /* Diminuí um pouco o enchimento para caber melhor na tela */
+    background: rgba(255, 255, 255, 0.1); /* Volta o fundo sutil */
+    padding: 10px 20px;
     border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    width: 200px; /* Largura fixa para todos os botões ficarem iguais */
-    text-align: center;
+    transition: 0.3s;
 }
 
-/* Ajuste específico para telas muito pequenas */
-@media (max-width: 480px) {
-    .banner-content h1 {
-        font-size: 2.5rem; /* Diminui o título para o menu subir um pouco */
-        margin-bottom: 30px;
-    }
+.main-menu li:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #4eb4ba;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Ajuste para não bugar no celular */
+@media (max-width: 768px) {
     .main-menu ul {
-        gap: 20px; /* Espaço um pouco menor se a tela for minúscula */
+        gap: 10px; /* Botões um pouco mais perto no celular pra caber */
+    }
+    
+    .main-menu li {
+        padding: 8px 15px; /* Botão menorzinho no mobile */
     }
 }
