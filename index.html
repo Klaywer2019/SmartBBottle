@@ -3,227 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação de Trabalhos - Interativo</title>
-    <style>
-        /* --- Reset e Base Estilizada (igual ao anterior) --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #141414; /* Dark Mode */
-            color: white;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Centraliza o conteúdo horizontalmente */
-            padding-top: 80px; /* Espaço para o header fixo */
-        }
-
-        /* --- Header Estilizado --- */
-        header {
-            padding: 20px 50px;
-            background: rgba(20, 20, 20, 0.95); /* Leve transparência */
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            text-align: left;
-            max-width: 800px; /* Largura máxima igual ao container */
-        }
-
-        header h1 {
-            color: #E50914; /* Vermelho Netflix */
-            font-size: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        header h2 {
-            font-size: 1.2rem;
-            color: #ddd;
-            font-weight: 500;
-        }
-
-        /* --- Container Principal --- */
-        .container {
-            width: 90%;
-            max-width: 800px; /* Largura máxima boa pra mobile/tablet */
-            display: flex;
-            flex-direction: column;
-            gap: 20px; /* Espaço entre os cards */
-            padding-bottom: 50px; /* Espaço no final */
-        }
-
-        /* --- Escondendo os Checkboxes (a mágica) --- */
-        .card-checkbox {
-            display: none;
-        }
-
-        /* --- Estilização do Card (agora é um <label>) --- */
-        .card-trigger {
-            background-color: #2f2f2f;
-            color: white;
-            height: 150px;
-            border-radius: 8px; /* Cantos arredondados */
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            transition: background-color 0.3sease, transform 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            user-select: none; /* Impede seleção de texto acidental */
-        }
-
-        .card-trigger h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: #fff;
-        }
-
-        /* --- Efeito de Hover e Clique --- */
-        .card-trigger:hover {
-            background-color: #3d3d3d;
-        }
-
-        /* Quando o checkbox associado é marcado (clicado) */
-        .card-checkbox:checked + .card-trigger {
-            background-color: #4a4a4a; /* Muda cor pra indicar seleção */
-            transform: scale(0.98); /* Leve efeito de "afundar" */
-            border-radius: 8px 8px 0 0; /* Remove cantos inferiores */
-        }
-
-        /* --- Painel de Informações (Inicialmente escondido) --- */
-        .info-panel {
-            background-color: #262626; /* Cor ligeiramente mais clara */
-            color: #ccc;
-            overflow: hidden; /* Esconde o conteúdo se estiver fechado */
-            height: 0; /* Começa com altura zero */
-            opacity: 0; /* Começa invisível */
-            border-radius: 0 0 8px 8px; /* Cantos inferiores arredondados */
-            transition: height 0.4s ease, opacity 0.4s ease, padding 0.4s ease; /* Animação suave */
-            padding: 0 20px; /* Padding lateral */
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
-        }
-
-        /* Título dentro do painel */
-        .info-panel h4 {
-            color: white;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #E50914; /* Detalhe em vermelho */
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        /* Lista dentro do painel */
-        .info-panel ul {
-            list-style-type: none; /* Remove bolinhas da lista */
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .info-panel li strong {
-            color: white;
-        }
-
-        /* --- Revelando o Painel de Informações --- */
-        /* Quando o checkbox associado é marcado... */
-        .card-checkbox:checked + .card-trigger + .info-panel {
-            height: auto; /* Deixa o conteúdo definir a altura */
-            opacity: 1; /* Torna visível */
-            padding: 25px 20px; /* Adiciona padding vertical */
-            margin-top: -1px; /* Cola no card acima */
-            border-top: 1px solid #444; /* Linha sutil de divisão */
-        }
-
-        /* --- Responsividade (Para telas menores) --- */
-        @media (max-width: 600px) {
-            header {
-                padding: 15px 20px;
-            }
-            header h1 {
-                font-size: 1.6rem;
-            }
-            .card-trigger {
-                height: 120px;
-            }
-            .info-panel {
-                font-size: 0.9rem;
-            }
-        }
-
-    </style>
+    <title>SmartBBottle - Sua Hidratação Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <h1>TRABALHOS ACADEMY</h1>
-        <h2>Minha Lista de Trabalhos</h2>
-    </header>
-
-    <div class="container">
-
-        <div class="item-grupo">
-            <input type="checkbox" id="check1" class="card-checkbox">
-            <label for="check1" class="card-trigger">
-                <h3>Introdução ao Tema</h3>
-            </label>
-            <div class="info-panel">
-                <h4>O que você vai aprender:</h4>
+    <section class="banner">
+        <div class="banner-content">
+            <h1>SMARTBBOTTLE</h1>
+            
+            <nav class="main-menu">
                 <ul>
-                    <li><strong>Contextualização:</strong> Uma breve história do problema.</li>
-                    <li><strong>A Importância:</strong> Por que escolhemos este tema.</li>
-                    <li><strong>Objetivos:</strong> O que pretendemos alcançar com esta pesquisa.</li>
-                    <li><strong>Metodologia:</strong> Um vislumbre de como vamos investigar.</li>
+                    <li><a href="#sobre">QUEM SOMOS?</a></li>
+                    <li><a href="#catalogo">CATÁLOGO</a></li>
+                    <li><a href="#ajuda">AJUDA</a></li>
                 </ul>
-            </div>
+            </nav>
         </div>
 
-        <div class="item-grupo">
-            <input type="checkbox" id="check2" class="card-checkbox">
-            <label for="check2" class="card-trigger">
-                <h3>Desenvolvimento 01</h3>
-            </label>
-            <div class="info-panel">
-                <h4>Principais Desafios:</h4>
-                <p>Nesta etapa inicial de desenvolvimento, focamos na estruturação básica do sistema e na definição das tecnologias principais (HTML, CSS puro). Os maiores desafios incluíram a criação de um layout responsivo que se adaptasse perfeitamente a dispositivos móveis.</p>
+        <div class="banner-media">
+            <div class="water-background-shape"></div>
+            <div class="bottle-mockup">
+                <img src="placeholder_bottle_transparent.png" alt="SmartBBottle">
+            </div>
+            <div class="mascot-mockup">
+                <img src="placeholder_mascot_transparent.png" alt="Mascote">
             </div>
         </div>
+    </section>
 
-        <div class="item-grupo">
-            <input type="checkbox" id="check3" class="card-checkbox">
-            <label for="check3" class="card-trigger">
-                <h3>Análise de Dados</h3>
-            </label>
-            <div class="info-panel">
-                <h4>Resultados do Primeiro Trimestre:</h4>
-                <ul>
-                    <li><strong>Taxa de Conversão:</strong> Aumento de 15% após o redesign.</li>
-                    <li><strong>Engajamento:</strong> O tempo médio de sessão subiu para 4:30 min.</li>
-                    <li><strong>Feedback:</strong> 80% dos usuários relataram uma experiência "ótima" ou "excelente".</li>
-                </ul>
+    <section id="sobre" class="sobre-nos">
+        <div class="container">
+            <div class="card-sobre">
+                <h2>SOBRE NÓS</h2>
+                <p>Na nossa empresa, acreditamos que cuidar da saúde pode ser simples e inteligente. Por isso, desenvolvemos uma garrafa inteligente pensada para acompanhar você no dia a dia, ajudando a manter uma hidratação adequada de forma prática e moderna.</p>
+                <div class="seta-indicador">>>></div>
             </div>
         </div>
+    </section>
 
-        <div class="item-grupo">
-            <input type="checkbox" id="check4" class="card-checkbox">
-            <label for="check4" class="card-trigger">
-                <h3>Conclusão Final</h3>
-            </label>
-            <div class="info-panel">
-                <h4>Pontos Chave:</h4>
-                <p>Este trabalho demonstrou que a implementação de uma interface limpa e intuitiva, combinada com uma navegação bem estruturada (como este painel expansível), melhora significativamente a retenção de informações pelo usuário final.</p>
+    <section id="catalogo" class="catalogo">
+        <div class="container">
+            <h2>CATÁLOGO</h2>
+            
+            <div class="catalogo-grid">
+                <div class="catalogo-item">
+                    <div class="media-placeholder">
+                        <img src="placeholder_catalogo_bottles.png" alt="Nossas Garrafas">
+                    </div>
+                    <h3>GARRAFAS</h3>
+                </div>
+
+                <div class="catalogo-item">
+                    <div class="media-placeholder">
+                        <img src="placeholder_catalogo_sabores.png" alt="Nossos Sabores">
+                    </div>
+                    <h3>SABORES</h3>
+                </div>
             </div>
         </div>
+    </section>
 
-    </div>
+    <section id="ajuda" class="ajuda">
+        <div class="container">
+            <h2>DÚVIDAS FREQUENTES</h2>
+            <p>Seção de ajuda em desenvolvimento...</p>
+        </div>
+    </section>
 
 </body>
 </html>
